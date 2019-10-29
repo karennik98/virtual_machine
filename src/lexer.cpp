@@ -34,6 +34,16 @@ namespace vm
         return tokens;
     }
 
+    std::vector<data_token> lex_data()
+    {
+        std::vector<data_token> tokens;
+
+        while(!is_at_end_data_segment())
+        {
+            
+        }
+    }
+
     token lexer::get_next_token()
     {
         if(is_current_one_char_token())
@@ -137,6 +147,11 @@ namespace vm
     bool lexer::is_at_end() const
     {
         return m_char == m_end;
+    }
+
+    bool lexer::is_at_end_data_segment() const
+    {
+        return *m_char == ".CODE";
     }
 
     bool lexer::is_identifier_char(char ch) const

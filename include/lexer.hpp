@@ -40,4 +40,18 @@ namespace vm
         std::string::const_iterator m_char;
         std::string::const_iterator m_end;
     };
+
+    class data_lexer
+    {
+    public:
+        explicit data_lexer(const std::string& source);
+
+        std::vector<data_token> lex_data();
+    private:
+        bool is_at_end() const;
+
+    private:
+        std::string::const_iterator m_char;
+        std::string::const_iterator m_end;
+    };
 }
